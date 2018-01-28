@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django_extensions',
+    'django_extensions',
     'taggit',
     'djblog',
 
@@ -118,8 +118,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 #EMAIL
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'deeps.jantz@gmail.com'
-EMAIL_HOST_PASSWORD = 'ka01q1991'
+EMAIL_HOST_USER = 'spring2018mdc8380@gmail.com'
+EMAIL_HOST_PASSWORD = 'Spring2018'
 EMAIL_PORT = 587
 EMAIL_USE_TLS= True
 
