@@ -81,11 +81,6 @@ WSGI_APPLICATION = 'myblog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
-
 
 DATABASES = {
     'default': {
@@ -93,9 +88,8 @@ DATABASES = {
         'NAME': 'd2hsl71ua1f2rr',
         'USER': 'ifukzwhhshdzfx',
         'PASSWORD': '251c07e629c63c3c6274d91a31cea43f0d480e4682b981e1bc2fae31094c95d1',
-        'HOST': 'postgres://ifukzwhhshdzfx:251c07e629c63c3c6274d91a31cea43f0d480e4682b981e1bc2fae31094c95d1@ec2-54-163-228-190.compute-1.amazonaws.com:5432/d2hsl71ua1f2rr',
+        'HOST': 'ec2-54-163-228-190.compute-1.amazonaws.com',
         'PORT': '5432',
-
 
     }
 }
@@ -106,7 +100,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Chicago'
 
 USE_I18N = True
 
@@ -149,5 +143,8 @@ STATICFILES_DIRS = (
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
-
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
