@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body>
+  
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  <div id="sidebar">
+    <h2>Deepika's blog</h2>
+    <p>Welcome to my page!</p>
+    <p>This is where you get to see my Posts and more information about me!</p>
+    <br>
+
+  </div>
+
+</body>
+</html>
