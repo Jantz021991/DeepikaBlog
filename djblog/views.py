@@ -11,7 +11,6 @@ from django.db.models import Count
 
 def post_list(request, tag_slug=None):
     """
-
     """
     object_list = Post.published.all()
     tag = None
@@ -35,7 +34,6 @@ def post_list(request, tag_slug=None):
 
 class PostListView(ListView):
     """
-
     """
     queryset = Post.published.all()
     context_object_name = 'posts'
@@ -45,7 +43,6 @@ class PostListView(ListView):
 
 def post_detail(request, year, month, day, post):
     """
-
     """
     post = get_object_or_404(Post, slug=post, status='published', publish__year=year, publish__month=month,
                              publish__day=day)
@@ -64,15 +61,15 @@ def post_detail(request, year, month, day, post):
             new_comment.save()
     else:
         comment_form = CommentForm()
-        # new_comment = False
+        new_comment = False
 
     # List of similar posts
     post_tags_ids = post.tags.values_list('id', flat=True)
     similar_posts = Post.published.filter(tags__in=post_tags_ids).exclude(id=post.id)
     similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:4]
-
     return render(request, 'blog/post/detail.html',
-                  {'post': post, 'comments': comments, 'comment_form': comment_form, 'similar_posts': similar_posts})
+                  {'post': post, 'comments': comments, 'comment_form': comment_form, 'similar_posts': similar_posts,
+                   'new_comment': new_comment})
 
 
 def post_share(request, post_id):
@@ -102,5 +99,3 @@ def post_share(request, post_id):
                                                     'form': form,
                                                     'sent': sent,
                                                     'recipient': recipient})
-
-
