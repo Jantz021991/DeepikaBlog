@@ -11,6 +11,7 @@ from django.db.models import Count
 
 def post_list(request, tag_slug=None):
     """
+
     """
     object_list = Post.published.all()
     tag = None
@@ -34,6 +35,7 @@ def post_list(request, tag_slug=None):
 
 class PostListView(ListView):
     """
+
     """
     queryset = Post.published.all()
     context_object_name = 'posts'
@@ -43,6 +45,7 @@ class PostListView(ListView):
 
 def post_detail(request, year, month, day, post):
     """
+
     """
     post = get_object_or_404(Post, slug=post, status='published', publish__year=year, publish__month=month,
                              publish__day=day)
@@ -99,3 +102,5 @@ def post_share(request, post_id):
                                                     'form': form,
                                                     'sent': sent,
                                                     'recipient': recipient})
+
+
