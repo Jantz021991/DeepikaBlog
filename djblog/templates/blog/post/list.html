@@ -3,9 +3,9 @@
 {% block title  %}My blog{% endblock %}
 {% block content %}
 
+  {% include "pagination.html" with page=posts %}
 
-
-  <h1>Rock Climbing Benefits</h1>
+  <h1>Deepika's Blog</h1>
 
   {% if tag %}
     <h2>Posts tagged with "{{ tag.name }}"</h2>
@@ -30,8 +30,5 @@
     <p class="tags">Tags: {{ post.tags.all|join:", " }}</p>
 
   {% endfor %}
-
-  {% include "pagination.html" with page=posts %}
-
 {% endblock %}
 
