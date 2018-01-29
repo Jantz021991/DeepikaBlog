@@ -3,7 +3,7 @@
 {% block title  %}My blog{% endblock %}
 {% block content %}
 
-  {% include "pagination.html" with page=posts %}
+
 
   <h1>Rock Climbing Benefits</h1>
 
@@ -30,5 +30,8 @@
     <p class="tags">Tags: {{ post.tags.all|join:", " }}</p>
 
   {% endfor %}
+
+  {% include "pagination.html" with page=posts %}
+
 {% endblock %}
 
